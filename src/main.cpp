@@ -7,8 +7,8 @@
 
 #define INTERVAL  (60000)   // Time to sleep (in milliseconds):
 
-#define WIFI_SSID "COM8943b"
-#define WIFI_PASSWORD "pyCBfVbaabTPA7T2"
+#define WIFI_SSID "A1-B5B769"
+#define WIFI_PASSWORD "0BC30981E6"
 #define WIFI_MAXRECONATTEMPTS (5)
 
 bool enaSendData = false;
@@ -74,7 +74,6 @@ void setup() {
 void loop() {
   static unsigned long currentMillis = 0;
   static unsigned long previousMillis = 0;
-  static unsigned long delta = 0;
 
   if (enaSendData) {
     currentMillis = millis();
@@ -83,8 +82,5 @@ void loop() {
       previousMillis = currentMillis;  
       ThingSpeakWrpr_sendData(1);
     }
-    // enaSendData = false;
-    // delay(5);   // MQTT stack needs some time to process publish
-    // ESP.deepSleep((INTERVAL * 10e5), WAKE_RF_DEFAULT);    // Sleep for INTERVAL seconds
   }
 }
